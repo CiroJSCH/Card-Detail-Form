@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap");
+
+.cards {
+  height: 28vh;
+  width: 100vw;
+  background: url("../assets/images/bg-main-mobile.png") no-repeat center /
+    cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  color: white;
+}
+
+.card {
+  border-radius: 10px;
+  width: 19rem;
+  height: 11rem;
+  position: relative;
+  -webkit-box-shadow: 10px 10px 34px -1px rgba(117, 117, 117, 0.4);
+  -moz-box-shadow: 10px 10px 34px -1px rgba(117, 117, 117, 0.4);
+  box-shadow: 10px 10px 34px -1px rgba(117, 117, 117, 0.4);
+}
+
+.card-img {
+  width: 100%;
+}
+
+.card-back {
+  top: 2rem;
+  left: 1rem;
+}
+
+.card-front {
+  bottom: 3.1rem;
+  right: 1rem;
+}
+
+.card-logo {
+  height: 2rem;
+  width: 4rem;
+  position: relative;
+  bottom: 9.4rem;
+  left: 1.2rem;
+}
+
+.card-number {
+  width: auto;
+  position: relative;
+  bottom: 7.3rem;
+  padding-left: 1rem;
+  letter-spacing: 2px;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.card-name,
+.card-date,
+.card-cvc {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 0;
+  position: relative;
+}
+
+.card-name {
+  width: 40%;
+  bottom: 6rem;
+  padding-left: 1rem;
+}
+
+.card-date {
+  width: 10%;
+  bottom: calc(6rem + 12px);
+  padding-left: 15rem;
+}
+
+.card-cvc {
+  width: 2rem;
+  bottom: 5.8rem;
+  padding-left: 15.2rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 1440px) {
+  .cards {
+    width: 30vw;
+    height: 100vh;
+    background: url("../assets/images/bg-main-desktop.png") no-repeat center /
+      cover;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .card {
+    width: 28rem;
+    height: 15rem;
+  }
+  .card-front {
+    left: 30%;
+    bottom: 0;
+  }
+  .card-back {
+    bottom: 0;
+    top: 5%;
+    left: 50%;
+  }
+  .card-logo {
+    height: 2.5rem;
+    width: 4.5rem;
+    bottom: 14rem;
+    left: 2rem;
+  }
+  .card-number {
+    font-size: 24px;
+    bottom: 10rem;
+    padding-left: 2rem;
+    letter-spacing: 5px;
+  }
+  .card-name,
+  .card-date,
+  .card-cvc {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .card-name {
+    bottom: 7rem;
+    padding-left: 2rem;
+  }
+
+  .card-date {
+    width: 10%;
+    bottom: calc(7rem + 16px);
+    padding-left: 23rem;
+  }
+  .card-cvc {
+    bottom: 8.5rem;
+    padding-left: 22.5rem;
+  }
+}
