@@ -20,6 +20,12 @@ button {
   border-radius: 10px;
   font-size: 1rem;
   letter-spacing: 2px;
+  transition: .5s background;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: hsl(279, 48%, 26%);
 }
 
 .field {
@@ -74,5 +80,7 @@ button {
 }
 
 @media screen and (min-width: 1440px) {
-
+  .form-container {
+    width: 60%;
+  }
 }
