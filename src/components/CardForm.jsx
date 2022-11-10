@@ -1,35 +1,12 @@
-import * as yup from "yup";
+import { useState } from "react";
+
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
+import { validationSchema } from "../util/validationSchema";
+
+import Thanks from "./Thanks";
+
 import "../styles/form.css";
-
-const cardNumbers = (value) => /^[0-9 ]+$/.test(value);
-
-const onlyNumbers = (value) => /^\d+$/.test(value);
-
-const validationSchema = yup.object({
-  name: yup.string().required("Required"),
-  cardNumber: yup
-    .string()
-    .required("Required")
-    .test("Only Numbers", "Only numbers", cardNumbers)
-    .min(19, "16 numbers required"),
-  dateM: yup
-    .string()
-    .required("Required")
-    .length(2, "2 digits")
-    .test("Only Numbers", "Only numbers", onlyNumbers),
-  dateY: yup
-    .string()
-    .required("Required")
-    .length(2, "2 digits")
-    .test("Only Numbers", "Only numbers", onlyNumbers),
-  cvc: yup
-    .string()
-    .required("Required")
-    .length(3, "3 digits")
-    .test("Only Numbers", "Only numbers", onlyNumbers),
-});
 
 const initialValues = {
   name: "",
@@ -40,11 +17,15 @@ const initialValues = {
 };
 
 const CardForm = ({ setCardData, cardData }) => {
+
+  const [complete, setComplete] = useState(false)
+
   return (
+    complete ? <Thanks /> :
     <div className="form">
       <Formik
         initialValues={initialValues}
-        onSubmit={() => console.log("caca")}
+        onSubmit={() => setComplete(!complete)}
         validationSchema={validationSchema}
       >
         {({ errors, touched, setFieldValue }) => (
@@ -99,6 +80,9 @@ const CardForm = ({ setCardData, cardData }) => {
                   placeholder="MM"
                   className="field"
                   maxLength={2}
+                  onBlur={(e) => {
+                    if (e.target.value > 12) setFieldValue("dateM", 12);
+                  }}
                 />
                 <ErrorMessage
                   name="dateM"

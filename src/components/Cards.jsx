@@ -15,8 +15,8 @@ const Cards = ({cardData}) => {
         <img src={frontCard} alt="Front card" className="card-img"/>
         <img src={logo} alt="Card logo" className="card-logo"/>
         <p className="card-number">{cardData.cardNumber}</p>
-        <p className="card-name">{cardData.name}</p>
-        <p className="card-date">{cardData.dateM}/{cardData.dateY}</p>
+        <p className="card-name">{cardData.name.toUpperCase()}</p>
+        <p className="card-date">{cardData.dateM > 12 ? "12" : cardData.dateM}/{cardData.dateY}</p>
       </div>
     </div>
   )
