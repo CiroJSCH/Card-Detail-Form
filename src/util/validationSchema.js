@@ -8,7 +8,9 @@ export const validationSchema = yup.object({
     name: yup
       .string()
       .required("Required")
-      .test("Only Letters", "Only Letters", cardName),
+      .test("Only Letters", "Only Letters", cardName)
+      .transform((value) => value.trim())
+      .max(30, "30 characters max"),
     cardNumber: yup
       .string()
       .required("Required")

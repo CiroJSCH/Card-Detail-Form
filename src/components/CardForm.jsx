@@ -21,7 +21,7 @@ const CardForm = ({ setCardData, cardData }) => {
   const [complete, setComplete] = useState(false)
 
   return (
-    complete ? <Thanks /> :
+    complete ? <Thanks setCardData={setCardData} setComplete={setComplete}/> :
     <div className="form">
       <Formik
         initialValues={initialValues}
@@ -42,6 +42,7 @@ const CardForm = ({ setCardData, cardData }) => {
                 name="name"
                 placeholder="e.g. Jane Appleseed"
                 className="field"
+                maxLength={30}
               />
               <ErrorMessage name="name" component={"span"} className="error" />
             </div>
